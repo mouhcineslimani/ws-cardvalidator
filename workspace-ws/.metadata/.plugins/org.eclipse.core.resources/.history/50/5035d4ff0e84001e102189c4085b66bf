@@ -1,0 +1,17 @@
+package org.mql.ws.restws;
+ 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path; 
+
+ 
+@Path("/api/v1")
+public class CardValidator {
+	
+	public CardValidator() {
+	}
+	
+	@GET
+	public boolean isValidate(String tel) {
+		return true;
+	}
+}

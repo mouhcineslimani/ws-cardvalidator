@@ -1,0 +1,37 @@
+package org.mql.ws.restws;
+ 
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import org.mql.ws.restws.models.Cart;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.stripe.Stripe; 
+
+ 
+@Path("/api/v1")
+public class CardValidator {
+    private static final String API_KEY = "YOUR_STRIPE_API_KEY";
+
+	public CardValidator() {
+	}
+	
+	@POST
+	public boolean isValidate(@RequestBody Cart cart) {
+		try {
+			Stripe.apiKey = API_KEY;
+
+	        Cart myCard = new Cart();
+	        card.setNumber(ca);
+	        card.setExpirationDate(expirationDate);
+	        card.setCvv(cvv);
+
+	        return card.isValid();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		 
+	}
+}

@@ -1,0 +1,5 @@
+package org.mql.ws;
+
+public class PhoneValidator {
+
+}

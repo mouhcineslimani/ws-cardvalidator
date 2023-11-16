@@ -1,0 +1,12 @@
+package org.mql.ws.restws;
+
+public class PhoneValidator {
+	public PhoneValidator() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String test()
+	{
+		return "";
+	}
+}

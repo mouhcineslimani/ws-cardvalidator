@@ -1,0 +1,21 @@
+package org.mql.ws.restws;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Path("/api/v1")
+public class PhoneValidator {
+	public PhoneValidator() {
+	}
+	@GET
+	public String test() {
+		return "Bonjour";
+	}
+	@GET("/isValidate")
+	public boolean isValidate(String tel) {
+		return true;
+	}
+}

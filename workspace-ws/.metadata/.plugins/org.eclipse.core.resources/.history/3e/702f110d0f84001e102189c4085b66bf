@@ -1,0 +1,5 @@
+package org.mql.ws.restws.models;
+
+public interface Cart {
+
+}

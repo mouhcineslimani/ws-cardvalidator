@@ -1,0 +1,61 @@
+package org.mql.ws.restws;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody; 
+
+ 
+@Path("/api/v1")
+@CrossOrigin("*")
+public class CardValidator {
+	
+	public CardValidator() {
+	}
+	
+	@POST
+	@Path("validate-card")
+	public ResponseEntity<String> validateCreditCard(@RequestBody String creditCardNumber) {
+        // Implémentez la logique de validation ici
+        if (isValidCreditCardNumber(creditCardNumber)) {
+            return ResponseEntity.ok("La carte de crédit est valide.");
+        } else {
+            return ResponseEntity.badRequest().body("La carte de crédit n'est pas valide.");
+        }
+    }
+	
+	
+	private boolean isValidCreditCardNumber(String creditCardNumber) {
+        // Supprimez les espaces et les tirets du numéro de carte de crédit
+        String cleanedNumber = creditCardNumber.replaceAll("\\s|-", "");
+
+        // Vérifiez si la longueur du numéro de carte est correcte (généralement 13 à 19 chiffres)
+        if (cleanedNumber.length() < 13 || cleanedNumber.length() > 19) {
+            return false;
+        }
+
+        // Appliquez l'algorithme de Luhn
+        int sum = 0;
+        boolean doubleDigit = false;
+
+        for (int i = cleanedNumber.length() - 1; i >= 0; i--) {
+            int digit = Character.getNumericValue(cleanedNumber.charAt(i));
+
+            if (doubleDigit) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+
+            sum += digit;
+            doubleDigit = !doubleDigit;
+        }
+
+        return sum % 10 == 0;
+    }
+}

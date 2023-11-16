@@ -1,0 +1,31 @@
+package org.mql.ws.restws;
+ 
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import org.mql.ws.restws.models.Cart;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.stripe.Stripe; 
+import com.stripe.model.Card;
+ 
+@Path("/api/v1")
+public class CardValidator {
+    private static final String API_KEY = "YOUR_STRIPE_API_KEY";
+
+	public CardValidator() {
+	}
+	
+	@GET
+	@Path("/validate")
+    public boolean validate(@RequestParam String cardNumber, @RequestParam String expirationDate, @RequestParam String cvv) throws StripeException {
+        Card card = new Card();
+        card.setNumber(cardNumber);
+        card.setExpirationDate(expirationDate);
+        card.setCvv(cvv);
+
+        return card.isValid();
+    }
+}

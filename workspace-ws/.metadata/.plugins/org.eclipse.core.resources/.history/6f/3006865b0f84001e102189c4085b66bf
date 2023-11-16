@@ -1,0 +1,21 @@
+package org.mql.ws.restws;
+ 
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import org.mql.ws.restws.models.Cart;
+import org.springframework.web.bind.annotation.RequestBody; 
+
+ 
+@Path("/api/v1")
+public class CardValidator {
+	
+	public CardValidator() {
+	}
+	
+	@POST
+	public boolean isValidate(@RequestBody Cart cart) {
+		return true;
+	}
+}

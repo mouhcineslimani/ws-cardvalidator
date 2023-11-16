@@ -1,0 +1,18 @@
+package org.mql.ws.restws.models;
+
+public class Cart {
+	private String cardNumber;
+	private String expirationDate;
+	private String cvc;
+
+	public Cart() {
+	}
+
+	public Cart(String cardNumber, String expirationDate, String cvc) {
+		super();
+		this.cardNumber = cardNumber;
+		this.expirationDate = expirationDate;
+		this.cvc = cvc;
+	}
+
+}

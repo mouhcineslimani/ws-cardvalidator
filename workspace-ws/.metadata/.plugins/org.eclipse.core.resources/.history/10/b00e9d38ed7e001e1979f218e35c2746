@@ -1,0 +1,7 @@
+package org.mql.ws.restws;
+
+public class JerseyConfiguration {
+	public JerseyConfiguration() {
+		  register(UserResource.class);
+		 }
+}

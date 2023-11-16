@@ -1,0 +1,15 @@
+package org.mql.ws.restws;
+
+
+public class PhoneValidator {
+	public PhoneValidator() {
+	}
+
+	public String test() {
+		return "";
+	}
+
+	public boolean isValidate(String tel) {
+		return true;
+	}
+}

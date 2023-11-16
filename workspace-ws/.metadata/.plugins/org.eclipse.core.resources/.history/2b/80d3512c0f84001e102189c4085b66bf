@@ -1,0 +1,8 @@
+package org.mql.ws.restws.models;
+
+public class Cart {
+	private String cardNumber;
+	private String expirationDate;
+	private String cvv; 
+
+}

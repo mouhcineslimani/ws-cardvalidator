@@ -1,0 +1,30 @@
+package org.mql.ws.restws.config;
+
+import org.springframework.stereotype.Component;
+import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@Component
+public class CorsFilter implements Filter {
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        
+        System.out.println(">>> Hello from Filter");
+        
+        // Allow requests from any origin
+        httpResponse.setHeader("Access-Control-Allow-Origin", "*");
+
+        // Allow the Content-Type header in the actual request
+        httpResponse.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+        // Allow POST requests with the Content-Type header
+        httpResponse.setHeader("Access-Control-Allow-Methods", "POST");
+
+        chain.doFilter(request, response);
+    }
+}
+

@@ -1,0 +1,11 @@
+package org.mql.ws.restws;
+
+import org.glassfish.jersey.server.ResourceConfig;
+
+@Component
+@ApplicationPath("/boot-jersey")
+public class JerseyConfiguration extends ResourceConfig {
+	public JerseyConfiguration() {
+		register(PhoneValidator.class);
+	}
+}

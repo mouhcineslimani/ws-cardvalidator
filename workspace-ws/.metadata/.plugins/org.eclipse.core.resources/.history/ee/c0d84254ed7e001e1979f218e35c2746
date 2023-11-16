@@ -1,0 +1,18 @@
+package org.mql.ws.restws;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.GET;
+
+@ApplicationPath("v1")
+public class PhoneValidator {
+	public PhoneValidator() {
+	}
+	@GET
+	public String test() {
+		return "";
+	}
+	@GET
+	public boolean isValidate(String tel) {
+		return true;
+	}
+}
